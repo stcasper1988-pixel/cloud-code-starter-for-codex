@@ -104,7 +104,7 @@ stack: next | vue | svelte | python | node | mobile | low-code | other:<назв
 
 > «Настроим звуковые уведомления - чтобы ты слышал, когда я закончил задачу или жду твоего разрешения. Полезно когда работаешь параллельно с чем-то ещё.»
 
-**Выполни** промпт из `prompts/setup/02-hooks.md` (прочитай его целиком и выполни по шагам). Он создаст `.codex/hooks.json` с hooks для Stop и PermissionRequest, а scripts из `templates/codex-hooks/` - в `.codex/hooks/`.
+**Выполни** промпт из `prompts/setup/02-hooks.md` (прочитай его целиком и выполни по шагам). Он создаст `.codex/hooks.json` только с hooks для Stop и PermissionRequest по образцу `templates/codex-hooks-audio.json.example`.
 
 После создания попроси пользователя открыть `/hooks`, показать список project-local hooks и явно подтвердить доверие к ним. Не включай режим полного доступа.
 
@@ -120,7 +120,7 @@ stack: next | vue | svelte | python | node | mobile | low-code | other:<назв
 
 > «Теперь поставлю защиту от опасных команд - чтобы я случайно не удалил твои файлы и не утёк секреты.»
 
-**Выполни** промпт из `prompts/setup/03-security.md` - добавляет в `.codex/hooks.json` hook `PreToolUse`, который запускает project-local policy script. В нём сохранены 4 концептуальные категории запретов (см. `templates/codex-hooks.json.example` и `templates/codex-hooks/`):
+**Выполни** промпт из `prompts/setup/03-security.md` - добавляет к уже настроенным звуковым hooks в `.codex/hooks.json` hook `PreToolUse` и копирует project-local policy script. В нём сохранены 4 концептуальные категории запретов (см. `templates/codex-hooks.json.example` и `templates/codex-hooks/`):
 - `rm -rf` массовое удаление
 - `curl` + `export` утечка переменных
 - чтение `.env` / `.env.local`

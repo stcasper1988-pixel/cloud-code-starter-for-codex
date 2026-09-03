@@ -12,11 +12,15 @@ Codex берёт файлы отсюда как образцы, когда со�
 
 Codex заполняет плейсхолдеры ответами из интервью и записывает в корень как `AGENTS.md`.
 
+## codex-hooks-audio.json.example
+
+Образец `.codex/hooks.json` после шага 4 AUTOPILOT. Содержит только звуковые hooks `Stop` и `PermissionRequest`; на этом шаге policy scripts ещё не устанавливаются.
+
 ## codex-hooks.json.example
 
 Образец `.codex/hooks.json` после прохождения шагов 4 и 5 AUTOPILOT (hooks + 4 запрета безопасности).
 
-Это валидный пример формата hooks Codex. На шаге 4 Codex копирует его как `.codex/hooks.json`, а policy scripts из `templates/codex-hooks/` - в `.codex/hooks/`. Project-local hooks нужно отдельно проверить и доверить через `/hooks`.
+Это итоговый пример формата hooks Codex. На шаге 5 Codex добавляет из него блок `PreToolUse` к уже существующим звуковым hooks, а соответствующий policy script из `templates/codex-hooks/` копирует в `.codex/hooks/`. Project-local hooks нужно отдельно проверить и доверить через `/hooks`.
 
 Структура:
 - `hooks.Stop` - звук при завершении задачи

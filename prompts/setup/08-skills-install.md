@@ -61,25 +61,25 @@
 3. Покажи, как создать свой первый скил: какой триггер, какая команда.
 ```
 
-### 2. Frontend Design из OpenAI skills
+### 2. Frontend Design от Anthropic
 
 **Что делает:** учит Codex нормальной типографике, сеткам, отступам и современной эстетике. Без него - типичный bootstrap-лук. С ним - сайт, за который не стыдно.
 
 ```prompt
-Установи skill frontend-design из официального репозитория OpenAI skills в мой текущий проект (`.agents/skills/`, не глобально).
+Установи skill frontend-design от Anthropic в мой текущий проект (`.agents/skills/`, не глобально).
 
-1. Найди актуальный официальный путь в github.com/openai/skills. Это может быть experimental skill - назови точный commit или tag.
+1. Найди официальный репозиторий Anthropic с этим скилом (`github.com/anthropics/skills/tree/main/skills/frontend-design`) и назови точный проверенный commit или tag.
 2. Аудит безопасности.
 3. Если безопасно - поставь локально в `.agents/skills/frontend-design/`.
 4. Покажи, как его триггерить: по каким ключевым словам Codex сам поймёт что пора.
 ```
 
-### 3. PDF skill из OpenAI skills (опционально)
+### 3. PDF skill от Anthropic (опционально)
 
 **Когда нужен:** если в бизнесе есть документы (договоры, прайсы, чеки, отчёты).
 
 ```prompt
-Установи skill pdf из официального репозитория OpenAI skills в мой текущий проект (`.agents/skills/`, не глобально). Аудит безопасности → установка → покажи как пользоваться.
+Установи skill pdf от Anthropic из официального репозитория `github.com/anthropics/skills/tree/main/skills/pdf` в мой текущий проект (`.agents/skills/`, не глобально). Аудит безопасности → установка → покажи как пользоваться.
 ```
 
 ### 4. Bulletproof (опционально)

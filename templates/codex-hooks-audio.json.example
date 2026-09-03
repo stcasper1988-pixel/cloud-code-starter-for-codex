@@ -1,0 +1,28 @@
+{
+  "description": "Звуковые уведомления для этого проекта Codex.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "(afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 || printf '\\a' >&2); printf '%s\\n' '{\"continue\":true}'",
+            "commandWindows": "powershell.exe -NoProfile -Command \"[console]::Beep(1000,200); Write-Output '{\"continue\":true}'\""
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff >/dev/null 2>&1 || printf '\\a' >&2",
+            "commandWindows": "powershell.exe -NoProfile -Command \"[console]::Beep(800,150)\""
+          }
+        ]
+      }
+    ]
+  }
+}

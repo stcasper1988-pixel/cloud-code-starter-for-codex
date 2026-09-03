@@ -14,3 +14,28 @@ jobs:
 
       - name: Run security audit
         run: bash scripts/security-audit.sh
+
+  hook-policy:
+    name: Hook policy (${{ matrix.mode }})
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            mode: bash
+          - os: windows-latest
+            mode: powershell
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        if: matrix.mode == 'bash'
+        with:
+          node-version: "22"
+
+      - name: Run hook policy regression tests
+        run: python scripts/test-hook-policy.py ${{ matrix.mode }}
