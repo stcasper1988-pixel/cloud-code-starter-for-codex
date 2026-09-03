@@ -28,7 +28,7 @@ def run_policy(command: list[str], payload: str, env: dict[str, str] | None = No
     result = subprocess.run(
         command,
         input=payload,
-        text=True,
+        encoding="utf-8",
         capture_output=True,
         env=env,
         check=False,
