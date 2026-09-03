@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3-codex.2] - 2026-09-03
+
+### Исправлена Codex-адаптация
+- Восстановлено авторское разделение шага 4 (звуковые hooks) и шага 5 (security policy) через отдельный audio-only шаблон.
+- Восстановлен обязательный запуск трёх параллельных субагентов при критике плана без изменения методологии автора.
+- Рекомендации `frontend-design` и `pdf` возвращены к существующим skills Anthropic с установкой в Codex-путь `.agents/skills/`.
+- `PreToolUse` policy переведена с сопоставления raw JSON на проверку декодированных `tool_name`, `command` и `path`; malformed payload и отсутствие parser обрабатываются fail-closed.
+- Unix и PowerShell policy синхронизированы для чтения `.env`, dangerous commands и корректного JSON deny-ответа.
+- Добавлены regression-тесты hooks на Ubuntu и Windows; PowerShell policy теперь проверяется реальным Windows runner.
+- Репозиторий включён как GitHub Template, чтобы инструкция `Use this template` соответствовала интерфейсу GitHub.
+- Унаследованные формулировки и ошибки upstream, не относящиеся к переносу на Codex, намеренно не изменялись.
+
 ## [1.0.3-codex.1] - 2026-09-01
 
 ### Техническая адаптация для Codex
